@@ -19,16 +19,8 @@ console.log(getMarkup);
 
 gallery.insertAdjacentHTML("beforeend", getMarkup);
 
-gallery.addEventListener("click", getBigImg);
-function getBigImg(e) {
-  e.preventDefault();
-  if (e.target.nodeName !== "IMG") {
-    return;
-  }
-  console.log(e);
-  const lightbox = new SimpleLightbox(".gallery a", {
-    captionsData: "alt",
-    captionDelay: 250,
-    captionPosition: "outside",
-  });
-}
+new SimpleLightbox(".gallery a", {
+  captionsData: "alt",
+  captionDelay: 250,
+  captionPosition: "outside",
+});

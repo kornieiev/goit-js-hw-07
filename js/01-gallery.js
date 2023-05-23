@@ -33,12 +33,15 @@ function getBigImg(evt) {
 `);
   modalImg.show();
 
-  galleryList.addEventListener("keydown", closeBigImg);
+  window.addEventListener("keydown", closeBigImg);
+}
 
-  function closeBigImg(evt) {
-    evt.preventDefault();
-    if (evt.code === "Escape" || evt.code === "Enter" || evt.code === "Space") {
-      modalImg.close();
-    }
+function closeBigImg(evt) {
+  evt.preventDefault();
+  if (evt.code === "Escape" || evt.code === "Enter" || evt.code === "Space") {
+    modalImg.close();
+    window.removeEventListener("keydown", closeBigImg);
   }
 }
+
+// ПИТАННЯ: ДЕ Я МОЖУ БАЧИТИ НАКОПИЧЕННЯ ОБРОБНИКІВ ПРО ЯКЕ ВИ ГОВОРИЛИ?
